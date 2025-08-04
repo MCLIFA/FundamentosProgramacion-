@@ -1,0 +1,17 @@
+#include <iostream>
+#include <string>
+
+using namespace std; // Esta es la línea que debes agregar
+
+int main()
+{
+    string nombre; // Ahora puedes usar 'string' directamente
+    
+    cout << "Ingresa tu nombre: "; // Ahora puedes usar 'cout' directamente
+    
+    cin >> nombre; // Ahora puedes usar 'cin' directamente
+
+    cout << "Hola, " << nombre << "!" << endl;
+    
+    return 0;
+}
