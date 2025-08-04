@@ -1,0 +1,14 @@
+#include <iostream>
+
+int main() {
+    std::cout << "Bolivianos: el hado propicio\n";
+    std::cout << "coronó nuestros votos y anhelo;\n";
+    std::cout << "es ya libre, ya libre este suelo,\n";
+    std::cout << "ya cesó su servil condición.\n";
+    std::cout << "Al estruendo marcial que ayer fuera\n";
+    std::cout << "y al clamor de la guerra horroroso\n";
+    std::cout << "siguen hoy, en contraste armonioso,\n";
+    std::cout << "dulces himnos de paz y de unión.";
+
+    return 0;
+}
