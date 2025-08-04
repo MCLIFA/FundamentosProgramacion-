@@ -1,0 +1,13 @@
+
+#include <iostream> 
+
+using namespace std; // maneja la salida y la entrada 
+
+
+int main() // inicio del algoritmo 
+{
+    
+    cout<<"Hola MUNDO";
+
+    return 0;
+}
