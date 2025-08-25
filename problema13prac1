@@ -1,0 +1,44 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+    
+    int dia;
+    int mes;
+    
+    cout << "Ingrese el dia: ";
+    cin >> dia;
+    cout << "Ingrese el mes: ";
+    cin >> mes;
+
+    
+    if (mes < 1 || mes > 12 || dia < 1 || dia > 31) {
+        cout << "La estacion es: Fecha invalida" << endl;
+        return 0;
+    }
+
+    string estacion;
+
+    // Primavera: 21/09 -- 20/12
+    // Verano:    21/12 -- 20/03
+    // Otono:     21/03 -- 20/06
+    // Invierno:  21/06 -- 20/09
+
+    if ((mes == 9 && dia >= 21) || (mes == 10) || (mes == 11) || (mes == 12 && dia < 21)) {
+        estacion = "Primavera";
+        
+    } else if ((mes == 12 && dia >= 21) || (mes == 1) || (mes == 2) || (mes == 3 && dia < 21)) {
+        estacion = "Verano";
+        
+    } else if ((mes == 3 && dia >= 21) || (mes == 4) || (mes == 5) || (mes == 6 && dia < 21)) {
+        estacion = "Otono";
+        
+    } else {
+        estacion = "Invierno";
+    }
+
+    cout << "La estacion es: " << estacion << endl;
+    return 0;
+}
