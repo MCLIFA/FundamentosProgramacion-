@@ -1,0 +1,20 @@
+
+#include <iostream>
+using namespace std;
+int main() {
+
+    int N,d;
+    float suma=0;
+    cout<<"Ingrese un numero entero";
+    cin>>N;
+    int Nbackup = N ;
+    
+    while(N>0) {
+    
+    d = N % 10 ;
+    N = N/10;
+    suma = suma+d;
+    }
+    cout<<"la suma de los digitos de su numero ingresado es :"<<Nbackup<<" es:"<<suma;
+    return 0;
+}
