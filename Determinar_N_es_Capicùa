@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int N, d;
+    float N_invertido = 0; 
+    
+    cout << "Ingrese un numero entero";
+    cin >> N;
+    
+    int N_original = N; 
+    
+    while (N > 0) 
+    {
+        d = N % 10;
+        
+        N_invertido = N_invertido * 10 + d;
+        
+        N = N / 10;
+    }
+    
+    if (N_original == N_invertido) 
+    {
+        cout << "El numero " << N_original << " es CAPICUA. Invertido es: " << N_invertido;
+    } 
+    else 
+    {
+        cout << "El numero " << N_original << " NO es capicua. Invertido es: " << N_invertido;
+    }
+    
+    return 0;
+}
