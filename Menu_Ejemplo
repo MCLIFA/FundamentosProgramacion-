@@ -1,0 +1,124 @@
+#include <iostream>
+#include <cmath>  // Para usar abs()
+#define MAX 100   // Tamaño máximo del arreglo
+
+using namespace std;
+
+// Prototipos
+void cargar(int vec[], int tam);
+void mostrar(int vec[], int tam);
+void calcularMaxDif(int vec[], int tam);
+void calcularMaxMin(int vec[], int tam, int& mayor, int& menor); // Nueva función
+void mostrarMaxMin(int vec[], int tam); // Función para mostrar los resultados
+
+int main() {
+    int opcion = 0, A[MAX], n;
+
+    // Pedir tamaño del arreglo
+    do {
+        cout << "Ingrese el tamaño del arreglo (maximo " << MAX << "): ";
+        cin >> n;
+    } while (n <= 0 || n > MAX);
+
+    do {
+        cout << "\n\tMENU" << endl;
+        cout << "1. Cargar el vector" << endl;
+        cout << "2. Mostrar el vector" << endl;
+        cout << "3. Calcular la diferencia más grande entre elementos consecutivos" << endl;
+        cout << "4. Calcular la mayor diferencia absoluta entre dos elementos consecutivos" << endl;
+        cout << "5. Calcular el mayor y el menor de un arreglo" << endl; //  Nueva opción
+        cout << "0. Salir" << endl;
+        cout << "\nIngrese una opción: ";
+        cin >> opcion;
+
+        switch (opcion) {
+        case 1:
+            cargar(A, n);
+            break;
+        case 2:
+            mostrar(A, n);
+            break;
+        case 3:
+            calcularMaxDif(A, n);
+            break;
+        case 4:
+            cout << "Opción adicional seleccionada (por definir)." << endl;
+            break;
+        case 5:
+            mostrarMaxMin(A, n); // Nueva función llamada
+            break;
+        case 0:
+            cout << "Saliendo del programa..." << endl;
+            break;
+        default:
+            cout << "Opción no válida. Intente de nuevo." << endl;
+        }
+    } while (opcion != 0);
+
+    return 0;
+}
+
+// Cargar valores en el arreglo
+void cargar(int vec[], int tam) {
+    cout << "\nIngrese los elementos del arreglo:" << endl;
+    for (int i = 0; i < tam; i++) {
+        cout << "Elemento " << (i + 1) << ": ";
+        cin >> vec[i];
+    }
+}
+
+// Mostrar el arreglo
+void mostrar(int vec[], int tam) {
+    cout << "\nLos elementos del arreglo son:" << endl;
+    for (int i = 0; i < tam; i++) {
+        cout << "Elemento " << (i + 1) << ": " << vec[i] << endl;
+    }
+}
+
+// Calcular la diferencia más grande entre elementos consecutivos
+void calcularMaxDif(int vec[], int tam) {
+    if (tam < 2) {
+        cout << "Se necesitan al menos 2 elementos para calcular la diferencia." << endl;
+        return;
+    }
+
+    double maxDif = 0;
+
+    for (int i = 0; i < tam - 1; i++) {
+        double dif = fabs(vec[i + 1] - vec[i]);
+        if (dif > maxDif) {
+            maxDif = dif;
+        }
+    }
+
+    cout << "\nLa diferencia más grande entre dos elementos consecutivos es: " << maxDif << endl;
+}
+
+// Nueva función: calcular el mayor y menor del arreglo
+void calcularMaxMin(int vec[], int tam, int& mayor, int& menor) {
+    if (tam <= 0) return;
+
+    mayor = vec[0];
+    menor = vec[0];
+
+    for (int i = 1; i < tam; i++) {
+        if (vec[i] > mayor)
+            mayor = vec[i];
+        if (vec[i] < menor)
+            menor = vec[i];
+    }
+}
+
+// Función auxiliar para mostrar los valores
+void mostrarMaxMin(int vec[], int tam) {
+    if (tam <= 0) {
+        cout << "El arreglo está vacío." << endl;
+        return;
+    }
+
+    int mayor, menor;
+    calcularMaxMin(vec, tam, mayor, menor);
+
+    cout << "\nEl valor mayor del arreglo es: " << mayor << endl;
+    cout << "El valor menor del arreglo es: " << menor << endl;
+}
